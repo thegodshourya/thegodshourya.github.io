@@ -571,6 +571,32 @@
         flex: 1;
       }
 
+      .project-actions {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 10px;
+        margin-top: 18px;
+      }
+
+      .mini-link {
+        display: inline-flex;
+        align-items: center;
+        justify-content: center;
+        min-height: 42px;
+        padding: 0 14px;
+        border-radius: 999px;
+        border: 1px solid var(--line);
+        font-size: 0.78rem;
+        font-weight: 600;
+        color: var(--text);
+        background: rgba(255,255,255,0.015);
+      }
+
+      .mini-link.primary {
+        background: linear-gradient(135deg, rgba(126,231,210,0.12), rgba(136,180,255,0.14));
+        border-color: rgba(136,180,255,0.2);
+      }
+
       .process-card {
         padding-top: 36px;
       }
@@ -726,6 +752,7 @@
           <a href="#process">Process</a>
           <a href="#about">About</a>
           <a href="#contact">Contact</a>
+          <a href="https://github.com/thegodshourya" target="_blank" rel="noreferrer">GitHub</a>
         </nav>
 
         <a href="#contact" class="button primary">Book a project</a>
@@ -859,13 +886,19 @@
           <div class="work-grid">
             <article class="card work-card reveal">
               <span class="work-tag">Smart Systems</span>
-              <h3>Energy monitoring prototype</h3>
-              <p>Developed a concept for tracking power usage and system behavior with a sensor-driven architecture and a clear digital interface.</p>
+              <h3>Load Mirror</h3>
+              <p>
+                Load Mirror is a smart monitoring project focused on understanding power usage, load behavior, and system performance with embedded intelligence and real-time observability.
+              </p>
               <ul class="tag-list">
-                <li>ESP32</li>
+                <li>Embedded</li>
+                <li>IoT</li>
                 <li>Monitoring</li>
-                <li>Insights</li>
               </ul>
+              <div class="project-actions">
+                <a class="mini-link primary" href="https://github.com/thegodshourya/Loan-Mirror" target="_blank" rel="noreferrer">GitHub Repo</a>
+                <a class="mini-link" href="https://github.com/thegodshourya" target="_blank" rel="noreferrer">GitHub Profile</a>
+              </div>
             </article>
 
             <article class="card work-card reveal">
@@ -970,7 +1003,10 @@
               <span class="eyebrow">Let’s build something valuable</span>
               <h3>Need a builder who understands both hardware and software?</h3>
             </div>
-            <a href="mailto:hello@shourya.dev" class="button primary">Start a conversation</a>
+            <div class="cta-row" style="margin-top:0;">
+              <a href="https://github.com/thegodshourya" class="button secondary" target="_blank" rel="noreferrer">GitHub Profile</a>
+              <a href="mailto:hello@shourya.dev" class="button primary">Start a conversation</a>
+            </div>
           </div>
         </div>
       </section>
