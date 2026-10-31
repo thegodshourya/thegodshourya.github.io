@@ -3,27 +3,37 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <meta name="theme-color" content="#050b16" />
-    <meta name="description" content="Shourya is an ECE student and engineering builder focused on embedded systems, electronics design, IoT, firmware, and software product development." />
-    <title>Shourya | Electronics Engineer & Product Builder</title>
+    <meta name="theme-color" content="#0a1220" />
+    <meta
+      name="description"
+      content="Shourya builds embedded systems, electronics, IoT products, and polished digital experiences for real-world engineering problems."
+    />
+    <title>Shourya | Embedded Systems & Product Builder</title>
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&display=swap" rel="stylesheet" />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&display=swap"
+      rel="stylesheet"
+    />
     <style>
       :root {
-        --bg: #050b16;
-        --bg-2: #0b1220;
-        --panel: rgba(16, 23, 37, 0.78);
-        --panel-strong: rgba(20, 30, 48, 0.96);
-        --line: rgba(255, 255, 255, 0.08);
-        --text: #edf5ff;
-        --muted: #a7b7cf;
-        --primary: #7ee7d2;
-        --primary-2: #88b4ff;
-        --accent: #d7a5ff;
-        --warm: #ffbf87;
-        --success: #8ef2c3;
-        --shadow: 0 30px 80px rgba(4, 11, 23, 0.7);
+        --bg: #071018;
+        --bg-2: #0d1824;
+        --panel: rgba(15, 23, 34, 0.72);
+        --panel-strong: rgba(13, 19, 28, 0.94);
+        --panel-soft: rgba(17, 27, 39, 0.82);
+        --line: rgba(164, 195, 255, 0.14);
+        --line-strong: rgba(132, 224, 255, 0.24);
+        --text: #edf6ff;
+        --muted: #a9bbcd;
+        --muted-2: #7f93af;
+        --cyan: #6fe7ff;
+        --teal: #7af0d1;
+        --blue: #89a9ff;
+        --violet: #c7b0ff;
+        --amber: #ffcc7d;
+        --glow: 0 0 0 1px rgba(123, 203, 255, 0.12), 0 24px 70px rgba(8, 19, 29, 0.55);
+        --shadow-lg: 0 30px 80px rgba(3, 8, 17, 0.7);
         --radius-xl: 32px;
         --radius-lg: 24px;
         --radius-md: 18px;
@@ -35,12 +45,12 @@
       body {
         margin: 0;
         font-family: "Inter", sans-serif;
-        color: var(--text);
         background:
-          radial-gradient(circle at 10% 0%, rgba(136, 180, 255, 0.14), transparent 28%),
-          radial-gradient(circle at 100% 10%, rgba(126, 231, 210, 0.14), transparent 30%),
-          radial-gradient(circle at 80% 100%, rgba(215, 165, 255, 0.12), transparent 28%),
-          var(--bg);
+          radial-gradient(circle at top left, rgba(108, 228, 255, 0.12), transparent 25%),
+          radial-gradient(circle at top right, rgba(122, 240, 209, 0.11), transparent 22%),
+          radial-gradient(circle at bottom center, rgba(199, 176, 255, 0.08), transparent 30%),
+          linear-gradient(180deg, var(--bg), #050c14 36%, var(--bg-2) 100%);
+        color: var(--text);
         line-height: 1.7;
         overflow-x: hidden;
       }
@@ -50,101 +60,48 @@
         position: fixed;
         inset: 0;
         background-image:
-          linear-gradient(rgba(255,255,255,0.018) 1px, transparent 1px),
-          linear-gradient(90deg, rgba(255,255,255,0.018) 1px, transparent 1px);
-        background-size: 26px 26px;
-        mask-image: radial-gradient(circle at center, rgb(0,0,0) 38%, transparent 100%);
+          linear-gradient(rgba(255,255,255,0.025) 1px, transparent 1px),
+          linear-gradient(90deg, rgba(255,255,255,0.025) 1px, transparent 1px);
+        background-size: 28px 28px;
+        mask-image: radial-gradient(circle at center, black 35%, transparent 100%);
         pointer-events: none;
         z-index: 0;
       }
 
-      .ambient-bg {
+      .noise {
         position: fixed;
-        inset: -8% -8% -8% -8%;
-        z-index: 0;
+        inset: 0;
+        background: radial-gradient(circle at center, rgba(255,255,255,0.04), transparent 70%);
         pointer-events: none;
-        filter: blur(26px);
-        opacity: 0.9;
-      }
-
-      .ambient-orb {
-        position: absolute;
-        border-radius: 50%;
-        mix-blend-mode: screen;
-        opacity: 0.75;
-        animation: drift 18s ease-in-out infinite alternate;
-      }
-
-      .ambient-orb.a {
-        width: 42vw;
-        height: 42vw;
-        left: -8vw;
-        top: 8vh;
-        background: radial-gradient(circle at 30% 30%, rgba(126,231,210,0.9), rgba(126,231,210,0.12) 50%, transparent 72%);
-      }
-
-      .ambient-orb.b {
-        width: 38vw;
-        height: 38vw;
-        right: -8vw;
-        top: 18vh;
-        background: radial-gradient(circle at 35% 35%, rgba(136,180,255,0.88), rgba(136,180,255,0.12) 52%, transparent 74%);
-        animation-delay: 2.5s;
-      }
-
-      .ambient-orb.c {
-        width: 32vw;
-        height: 32vw;
-        left: 35vw;
-        bottom: -12vh;
-        background: radial-gradient(circle at 35% 35%, rgba(215,165,255,0.82), rgba(215,165,255,0.1) 54%, transparent 75%);
-        animation-delay: 4s;
-      }
-
-      .ambient-grid {
-        position: absolute;
-        inset: 0;
-        background: linear-gradient(transparent 0%, rgba(255,255,255,0.05) 100%);
-        opacity: 0.45;
-      }
-
-      .particle-layer {
-        position: absolute;
-        inset: 0;
-      }
-
-      .particle {
-        position: absolute;
-        width: 4px;
-        height: 4px;
-        border-radius: 50%;
-        background: rgba(255,255,255,0.8);
-        box-shadow: 0 0 10px rgba(126,231,210,0.5);
-        opacity: 0.35;
-        transform: translate3d(0,0,0);
+        z-index: 0;
       }
 
       a { color: inherit; text-decoration: none; }
-      img { max-width: 100%; display: block; }
-      p, h1, h2, h3 { margin-top: 0; }
+      img { display: block; max-width: 100%; }
+      p, h1, h2, h3, ul { margin-top: 0; }
 
-      .container { width: var(--container); margin: 0 auto; position: relative; z-index: 1; }
+      .container {
+        width: var(--container);
+        margin: 0 auto;
+        position: relative;
+        z-index: 1;
+      }
 
       .topbar {
         position: sticky;
         top: 0;
-        z-index: 30;
+        z-index: 50;
+        background: rgba(7, 16, 24, 0.7);
+        border-bottom: 1px solid var(--line);
         backdrop-filter: blur(18px);
         -webkit-backdrop-filter: blur(18px);
-        background: rgba(5, 11, 22, 0.72);
-        border-bottom: 1px solid var(--line);
       }
 
       .nav {
-        min-height: 78px;
         display: flex;
         align-items: center;
         justify-content: space-between;
+        min-height: 78px;
         gap: 24px;
       }
 
@@ -152,22 +109,22 @@
         display: inline-flex;
         align-items: center;
         gap: 12px;
+        font-size: 0.8rem;
+        letter-spacing: 0.16em;
         font-weight: 800;
-        letter-spacing: 0.1em;
-        font-size: 0.82rem;
       }
 
       .brand-mark {
-        width: 36px;
-        height: 36px;
         display: grid;
         place-items: center;
+        width: 38px;
+        height: 38px;
         border-radius: 12px;
-        background: linear-gradient(135deg, var(--primary), var(--primary-2));
-        color: #08131d;
-        font-size: 1rem;
+        font-size: 0.95rem;
         font-weight: 900;
-        box-shadow: 0 15px 35px rgba(126, 231, 210, 0.35);
+        color: #04151d;
+        background: linear-gradient(135deg, var(--teal), var(--cyan), var(--blue));
+        box-shadow: 0 16px 36px rgba(111, 231, 255, 0.25);
       }
 
       .nav-links {
@@ -175,32 +132,36 @@
         align-items: center;
         gap: 26px;
         color: var(--muted);
-        font-size: 0.95rem;
+        font-size: 0.92rem;
       }
 
-      .nav-links a:hover, .nav-links a:focus-visible { color: var(--text); }
+      .nav-links a:hover,
+      .nav-links a:focus-visible { color: var(--text); }
 
       .button {
         display: inline-flex;
         align-items: center;
         justify-content: center;
-        min-height: 50px;
+        min-height: 48px;
         padding: 0 22px;
         border-radius: 999px;
         border: 1px solid transparent;
         font-weight: 700;
-        cursor: pointer;
-        transition: transform 0.25s ease, box-shadow 0.25s ease, border 0.25s ease;
+        letter-spacing: 0.01em;
+        transition: transform 0.25s ease, box-shadow 0.25s ease, border-color 0.25s ease;
       }
 
-      .button:hover, .button:focus-visible { transform: translateY(-1px); }
+      .button:hover,
+      .button:focus-visible { transform: translateY(-1px); }
+
       .button.primary {
-        background: linear-gradient(135deg, var(--primary), #c8fff4);
-        color: #08131d;
-        box-shadow: 0 24px 42px rgba(126, 231, 210, 0.2);
+        background: linear-gradient(135deg, var(--teal), var(--cyan));
+        color: #061821;
+        box-shadow: 0 22px 42px rgba(111, 231, 255, 0.2);
       }
+
       .button.secondary {
-        background: rgba(255,255,255,0.02);
+        background: rgba(255,255,255,0.015);
         border-color: var(--line);
         color: var(--text);
       }
@@ -208,50 +169,49 @@
       .hero {
         position: relative;
         padding: 72px 0 50px;
-        overflow: hidden;
       }
 
       .hero-grid {
         display: grid;
         grid-template-columns: 1.08fr 0.92fr;
-        gap: 38px;
+        gap: 34px;
         align-items: center;
       }
 
-      .eyebrow {
+      .tagline {
         display: inline-flex;
         align-items: center;
         gap: 10px;
         padding: 9px 14px;
         border-radius: 999px;
-        background: rgba(136, 180, 255, 0.08);
-        border: 1px solid rgba(136, 180, 255, 0.18);
-        color: #dfeaff;
+        background: rgba(111, 231, 255, 0.08);
+        border: 1px solid rgba(111, 231, 255, 0.18);
+        color: #dfeeff;
         letter-spacing: 0.14em;
-        text-transform: uppercase;
         font-size: 0.72rem;
+        text-transform: uppercase;
         margin-bottom: 22px;
       }
 
-      .eyebrow::before {
+      .tagline::before {
         content: "";
         width: 8px;
         height: 8px;
         border-radius: 50%;
-        background: var(--primary);
-        box-shadow: 0 0 20px rgba(126,231,210,0.8);
+        background: var(--cyan);
+        box-shadow: 0 0 16px rgba(111, 231, 255, 0.8);
       }
 
       .hero h1 {
-        margin-bottom: 20px;
-        font-size: clamp(3.2rem, 5vw, 6.2rem);
-        line-height: 0.95;
+        margin-bottom: 18px;
+        max-width: 760px;
+        font-size: clamp(3.2rem, 5vw, 6rem);
+        line-height: 0.96;
         letter-spacing: -0.08em;
-        max-width: 700px;
       }
 
       .gradient-text {
-        background: linear-gradient(135deg, #e8f4ff 0%, #b9d8ff 22%, #8fead8 54%, #d8b8ff 100%);
+        background: linear-gradient(135deg, var(--text) 0%, var(--cyan) 22%, var(--teal) 52%, #d8c1ff 100%);
         -webkit-background-clip: text;
         background-clip: text;
         color: transparent;
@@ -266,65 +226,64 @@
       .cta-row {
         display: flex;
         flex-wrap: wrap;
-        gap: 16px;
-        margin-top: 32px;
+        gap: 14px;
+        margin-top: 30px;
       }
 
-      .hero-stats {
+      .stats-row {
         display: flex;
         flex-wrap: wrap;
-        gap: 18px;
+        gap: 16px;
         margin-top: 34px;
       }
 
       .stat-box {
-        min-width: 138px;
+        min-width: 150px;
         padding: 18px 18px 16px;
-        background: rgba(255,255,255,0.025);
-        border: 1px solid var(--line);
         border-radius: 18px;
+        background: rgba(255,255,255,0.02);
+        border: 1px solid var(--line);
       }
 
       .stat-box strong {
         display: block;
-        font-size: clamp(1.5rem, 2.2vw, 2.2rem);
+        margin-bottom: 4px;
+        font-size: clamp(1.5rem, 2vw, 2.2rem);
+        line-height: 1;
         letter-spacing: -0.06em;
-        margin-bottom: 6px;
       }
 
       .stat-box span {
-        display: block;
         color: var(--muted);
-        font-size: 0.8rem;
+        font-size: 0.78rem;
       }
 
-      .visual-wrap {
+      .visual-panel {
         position: relative;
-        height: 620px;
+        min-height: 620px;
         display: flex;
         align-items: center;
         justify-content: center;
       }
 
-      .visual-shell {
+      .board {
         position: relative;
-        width: min(100%, 520px);
+        width: min(100%, 540px);
         height: 620px;
         border-radius: 32px;
-        background: linear-gradient(180deg, rgba(19,28,44,0.9), rgba(8,14,25,0.9));
         border: 1px solid rgba(255,255,255,0.08);
-        box-shadow: var(--shadow);
+        background: linear-gradient(180deg, rgba(14, 22, 32, 0.94), rgba(6, 12, 18, 0.96));
+        box-shadow: var(--shadow-lg);
         overflow: hidden;
-        transform-style: preserve-3d;
-        transition: transform 0.25s ease;
       }
 
-      .visual-shell::before {
+      .board::before {
         content: "";
         position: absolute;
-        inset: 14px;
+        inset: 16px;
         border-radius: 26px;
-        border: 1px solid rgba(255,255,255,0.06);
+        background: linear-gradient(180deg, rgba(19, 28, 39, 0.72), rgba(9, 15, 22, 0.85));
+        border: 1px solid rgba(255,255,255,0.05);
       }
 
       .orb {
@@ -334,163 +293,208 @@
         opacity: 0.9;
         animation: float 10s ease-in-out infinite alternate;
       }
-      .orb.one { width: 220px; height: 220px; right: 24px; top: 38px; background: rgba(136,180,255,0.26); }
-      .orb.two { width: 250px; height: 250px; left: 26px; bottom: 62px; background: rgba(126,231,210,0.2); animation-delay: 1.2s; }
-      .orb.three { width: 160px; height: 160px; bottom: 150px; right: 110px; background: rgba(215,165,255,0.22); animation-delay: 2.2s; }
 
-      .chip-box {
+      .orb.one {
+        right: 26px;
+        top: 42px;
+        width: 210px;
+        height: 210px;
+        background: rgba(137, 169, 255, 0.25);
+      }
+
+      .orb.two {
+        left: 20px;
+        bottom: 50px;
+        width: 250px;
+        height: 250px;
+        background: rgba(122, 240, 209, 0.18);
+        animation-delay: 1.2s;
+      }
+
+      .orb.three {
+        right: 92px;
+        bottom: 150px;
+        width: 160px;
+        height: 160px;
+        background: rgba(199, 176, 255, 0.2);
+        animation-delay: 2s;
+      }
+
+      .module {
         position: absolute;
-        top: 52px;
-        left: 42px;
-        width: 230px;
-        padding: 18px 16px 16px;
-        border-radius: 20px;
-        background: rgba(9, 15, 27, 0.62);
+        z-index: 2;
         border: 1px solid rgba(255,255,255,0.08);
+        background: rgba(9, 16, 24, 0.62);
         backdrop-filter: blur(14px);
+        -webkit-backdrop-filter: blur(14px);
+      }
+
+      .chip-stack {
+        top: 54px;
+        left: 42px;
+        width: 210px;
+        padding: 16px 16px 14px;
+        border-radius: 20px;
       }
 
       .chip-label {
+        display: inline-block;
         color: var(--muted);
-        letter-spacing: 0.12em;
-        font-size: 0.65rem;
+        font-size: 0.62rem;
+        letter-spacing: 0.16em;
         text-transform: uppercase;
       }
 
       .chip-grid {
         display: grid;
         grid-template-columns: repeat(2, minmax(0, 1fr));
-        gap: 10px;
+        gap: 8px;
         margin-top: 14px;
       }
 
       .chip {
         display: grid;
         place-items: center;
-        min-height: 56px;
-        border-radius: 14px;
-        background: rgba(255,255,255,0.025);
+        min-height: 54px;
+        border-radius: 12px;
+        background: rgba(255,255,255,0.02);
         border: 1px solid rgba(255,255,255,0.06);
-        font-size: 0.76rem;
+        font-size: 0.72rem;
         font-weight: 700;
-        letter-spacing: 0.07em;
+        letter-spacing: 0.08em;
         text-transform: uppercase;
       }
-      .chip.primary { background: linear-gradient(135deg, rgba(126,231,210,0.15), rgba(136,180,255,0.16)); }
-      .chip.accent { background: linear-gradient(135deg, rgba(215,165,255,0.14), rgba(136,180,255,0.12)); }
 
-      .floating-card {
-        position: absolute;
-        border-radius: 18px;
-        padding: 16px 18px;
-        background: rgba(10, 17, 29, 0.72);
-        border: 1px solid rgba(255,255,255,0.07);
-        backdrop-filter: blur(12px);
-        box-shadow: 0 20px 45px rgba(0,0,0,0.22);
+      .chip.primary {
+        background: linear-gradient(135deg, rgba(122,240,209,0.13), rgba(111,231,255,0.1));
       }
 
-      .floating-card.main {
+      .chip.accent {
+        background: linear-gradient(135deg, rgba(199,176,255,0.12), rgba(137,169,255,0.11));
+      }
+
+      .float-card {
+        position: absolute;
+        z-index: 3;
         right: 40px;
         top: 120px;
-        width: 240px;
-        background: linear-gradient(135deg, rgba(126,231,210,0.12), rgba(136,180,255,0.12));
+        width: 230px;
+        padding: 16px 18px;
+        border-radius: 18px;
+        background: linear-gradient(135deg, rgba(122,240,209,0.12), rgba(137,169,255,0.12));
+        border: 1px solid rgba(142, 198, 255, 0.18);
+        box-shadow: 0 20px 48px rgba(0,0,0,0.2);
       }
 
-      .floating-card strong {
+      .float-card strong {
         display: block;
-        font-size: 1.1rem;
+        margin-bottom: 6px;
+        font-size: 1.08rem;
         letter-spacing: -0.05em;
-        margin-bottom: 7px;
       }
 
-      .floating-card span {
+      .float-card span {
         color: var(--muted);
-        font-size: 0.74rem;
+        font-size: 0.75rem;
       }
 
-      .mini-badge {
+      .signal-box {
         position: absolute;
         left: 46px;
-        bottom: 120px;
-        padding: 11px 14px;
-        border-radius: 14px;
-        background: rgba(255,255,255,0.03);
-        border: 1px solid rgba(255,255,255,0.06);
-        font-weight: 600;
-        letter-spacing: 0.04em;
-      }
-
-      .mini-badge.right {
-        left: auto;
-        right: 44px;
-        bottom: 115px;
-      }
-
-      .signal-panel {
-        position: absolute;
-        left: 50px;
-        right: 50px;
+        right: 46px;
         bottom: 72px;
-        height: 168px;
+        height: 180px;
         border-radius: 22px;
-        background: linear-gradient(180deg, rgba(18,28,44,0.86), rgba(8,13,24,0.78));
-        border: 1px solid rgba(255,255,255,0.08);
+        z-index: 2;
+        background: linear-gradient(180deg, rgba(17, 26, 37, 0.8), rgba(8, 15, 22, 0.85));
+        border: 1px solid rgba(255,255,255,0.07);
         overflow: hidden;
       }
 
-      .signal-panel::before, .signal-panel::after {
+      .signal-box::before,
+      .signal-box::after {
         content: "";
         position: absolute;
-        left: 12%;
-        right: 12%;
-        height: 46%;
-        background: linear-gradient(90deg, transparent, rgba(126,231,210,0.8), rgba(136,180,255,0.85), transparent);
+        left: 14%;
+        right: 14%;
+        height: 48%;
+        top: 24%;
+        background: linear-gradient(90deg, transparent, rgba(111,231,255,0.8), rgba(137,169,255,0.9), transparent);
         transform: skewY(-18deg);
-        filter: blur(10px);
-        top: 26%;
+        filter: blur(8px);
       }
 
-      .signal-panel::after {
-        top: 14%;
-        left: 20%;
-        right: 20%;
+      .signal-box::after {
+        top: 12%;
+        left: 24%;
+        right: 24%;
         opacity: 0.8;
       }
 
-      .section { padding: 56px 0; }
+      .badge {
+        position: absolute;
+        left: 42px;
+        bottom: 160px;
+        z-index: 3;
+        padding: 10px 14px;
+        border-radius: 12px;
+        background: rgba(255,255,255,0.025);
+        border: 1px solid rgba(255,255,255,0.06);
+        color: #dfeeff;
+        font-size: 0.7rem;
+        letter-spacing: 0.08em;
+        text-transform: uppercase;
+      }
+
+      .badge.right {
+        left: auto;
+        right: 42px;
+        bottom: 150px;
+      }
+
+      .section {
+        padding: 62px 0;
+      }
 
       .section-head {
         display: flex;
         justify-content: space-between;
         gap: 18px;
         align-items: end;
-        margin-bottom: 28px;
+        margin-bottom: 26px;
       }
 
       .section-head h2 {
         margin: 0;
-        font-size: clamp(2.2rem, 4vw, 3.6rem);
+        font-size: clamp(2.3rem, 4vw, 3.8rem);
         line-height: 1.02;
         letter-spacing: -0.06em;
       }
 
       .section-head p {
-        max-width: 520px;
+        max-width: 560px;
         margin: 0;
         color: var(--muted);
       }
 
-      .cap-grid, .work-grid, .process-grid, .method-grid { display: grid; gap: 22px; }
+      .cap-grid,
+      .project-grid,
+      .process-grid,
+      .method-grid {
+        display: grid;
+        gap: 22px;
+      }
+
       .cap-grid { grid-template-columns: repeat(4, minmax(0, 1fr)); }
-      .work-grid { grid-template-columns: repeat(3, minmax(0, 1fr)); }
+      .project-grid { grid-template-columns: repeat(3, minmax(0, 1fr)); }
       .process-grid { grid-template-columns: repeat(4, minmax(0, 1fr)); }
       .method-grid { grid-template-columns: repeat(3, minmax(0, 1fr)); }
 
       .card {
         position: relative;
+        border-radius: 24px;
         background: rgba(255,255,255,0.02);
         border: 1px solid var(--line);
-        border-radius: var(--radius-lg);
         padding: 26px 22px;
         overflow: hidden;
       }
@@ -501,23 +505,31 @@
         inset: 0 auto auto 0;
         width: 100%;
         height: 1px;
-        background: linear-gradient(90deg, transparent, rgba(126,231,210,0.8), transparent);
+        background: linear-gradient(90deg, transparent, rgba(111,231,255,0.8), transparent);
       }
 
       .icon-box {
-        width: 52px;
-        height: 52px;
+        width: 54px;
+        height: 54px;
         display: grid;
         place-items: center;
-        margin-bottom: 18px;
         border-radius: 16px;
-        background: linear-gradient(135deg, rgba(126,231,210,0.14), rgba(136,180,255,0.17));
+        margin-bottom: 18px;
         border: 1px solid rgba(255,255,255,0.08);
-        font-size: 1.5rem;
+        background: linear-gradient(135deg, rgba(122,240,209,0.12), rgba(137,169,255,0.12));
+        font-size: 1.4rem;
       }
 
-      .card h3 { margin-bottom: 12px; font-size: 1.35rem; letter-spacing: -0.04em; }
-      .card p { color: var(--muted); margin-bottom: 0; }
+      .card h3 {
+        margin-bottom: 12px;
+        font-size: 1.35rem;
+        letter-spacing: -0.04em;
+      }
+
+      .card p {
+        color: var(--muted);
+        margin-bottom: 0;
+      }
 
       .tag-list {
         list-style: none;
@@ -529,45 +541,44 @@
       }
 
       .tag-list li {
-        padding: 7px 10px;
+        padding: 7px 9px;
         border-radius: 999px;
-        background: rgba(255,255,255,0.028);
+        background: rgba(255,255,255,0.02);
         border: 1px solid rgba(255,255,255,0.06);
-        color: #dfeaff;
-        font-size: 0.68rem;
-        line-height: 1;
+        color: #dfeeff;
+        font-size: 0.64rem;
         letter-spacing: 0.12em;
         text-transform: uppercase;
       }
 
-      .work-card {
-        padding: 22px 22px 20px;
+      .project-card {
+        padding: 22px 22px 18px;
         min-height: 300px;
         display: flex;
         flex-direction: column;
       }
 
-      .work-tag {
+      .project-card .project-kicker {
         display: inline-flex;
         width: fit-content;
+        margin-bottom: 18px;
         padding: 7px 10px;
         border-radius: 999px;
-        background: rgba(136,180,255,0.08);
-        border: 1px solid rgba(136,180,255,0.16);
-        color: #dfeaff;
+        background: rgba(137, 169, 255, 0.08);
+        border: 1px solid rgba(137, 169, 255, 0.2);
+        color: #dfeeff;
+        font-size: 0.63rem;
         letter-spacing: 0.12em;
-        font-size: 0.65rem;
         text-transform: uppercase;
-        margin-bottom: 18px;
       }
 
-      .work-card h3 {
-        font-size: 1.55rem;
+      .project-card h3 {
+        font-size: 1.5rem;
         letter-spacing: -0.05em;
         margin-bottom: 12px;
       }
 
-      .work-card p {
+      .project-card p {
         flex: 1;
       }
 
@@ -575,7 +586,7 @@
         display: flex;
         flex-wrap: wrap;
         gap: 10px;
-        margin-top: 18px;
+        margin-top: 16px;
       }
 
       .mini-link {
@@ -586,18 +597,19 @@
         padding: 0 14px;
         border-radius: 999px;
         border: 1px solid var(--line);
+        background: rgba(255,255,255,0.015);
+        color: var(--text);
         font-size: 0.78rem;
         font-weight: 600;
-        color: var(--text);
-        background: rgba(255,255,255,0.015);
       }
 
       .mini-link.primary {
-        background: linear-gradient(135deg, rgba(126,231,210,0.12), rgba(136,180,255,0.14));
-        border-color: rgba(136,180,255,0.2);
+        background: linear-gradient(135deg, rgba(122,240,209,0.12), rgba(137,169,255,0.14));
+        border-color: rgba(137,169,255,0.2);
       }
 
       .process-card {
+        min-height: 200px;
         padding-top: 36px;
       }
 
@@ -605,38 +617,34 @@
         position: absolute;
         top: 18px;
         right: 18px;
-        font-size: 0.75rem;
-        letter-spacing: 0.15em;
+        font-size: 0.68rem;
+        letter-spacing: 0.16em;
         text-transform: uppercase;
-        color: var(--primary);
+        color: var(--cyan);
       }
 
       .about-wrap {
         display: grid;
         grid-template-columns: 1.08fr 0.92fr;
-        gap: 24px;
+        gap: 22px;
       }
 
       .about-panel {
         padding: 32px 28px;
-        background: rgba(255,255,255,0.024);
+        border-radius: 28px;
+        background: rgba(255,255,255,0.02);
         border: 1px solid var(--line);
-        border-radius: var(--radius-xl);
       }
 
       .about-panel h2 {
-        font-size: clamp(2.2rem, 4vw, 3.5rem);
-        letter-spacing: -0.06em;
-        line-height: 1;
         margin-bottom: 18px;
+        font-size: clamp(2.2rem, 4vw, 3.6rem);
+        line-height: 1;
+        letter-spacing: -0.06em;
       }
 
       .about-panel p {
         color: var(--muted);
-      }
-
-      .method-grid .card {
-        min-height: 220px;
       }
 
       .metric-stack {
@@ -646,17 +654,18 @@
       }
 
       .metric-box {
-        padding: 22px 18px;
+        padding: 24px 18px;
+        border-radius: 20px;
         background: rgba(255,255,255,0.02);
         border: 1px solid var(--line);
-        border-radius: var(--radius-md);
       }
 
       .metric-box strong {
         display: block;
-        font-size: clamp(2rem, 3vw, 2.8rem);
-        letter-spacing: -0.06em;
         margin-bottom: 8px;
+        font-size: clamp(2rem, 3vw, 2.9rem);
+        line-height: 1;
+        letter-spacing: -0.06em;
       }
 
       .metric-box span {
@@ -667,23 +676,23 @@
         display: flex;
         align-items: center;
         justify-content: space-between;
-        gap: 30px;
-        padding: 30px 28px;
-        background: linear-gradient(135deg, rgba(126,231,210,0.12), rgba(136,180,255,0.12));
-        border: 1px solid rgba(136,180,255,0.2);
-        border-radius: var(--radius-xl);
-        box-shadow: 0 28px 70px rgba(8, 16, 30, 0.48);
+        gap: 26px;
+        padding: 28px 30px;
+        border-radius: 28px;
+        background: linear-gradient(135deg, rgba(122,240,209,0.1), rgba(137,169,255,0.12));
+        border: 1px solid rgba(137,169,255,0.18);
+        box-shadow: 0 28px 70px rgba(3, 11, 18, 0.52);
       }
 
       .cta-panel h3 {
         margin: 0;
-        font-size: clamp(2rem, 3vw, 3rem);
-        letter-spacing: -0.06em;
+        font-size: clamp(2rem, 3vw, 3.1rem);
         line-height: 1.02;
+        letter-spacing: -0.06em;
       }
 
       .footer {
-        padding: 30px 0 60px;
+        padding: 28px 0 60px;
         color: var(--muted);
         text-align: center;
       }
@@ -699,31 +708,36 @@
         transform: translateY(0);
       }
 
-      @keyframes drift {
-        0% { transform: translate3d(0, 0, 0) scale(1); }
-        100% { transform: translate3d(30px, -24px, 0) scale(1.12); }
-      }
-
       @keyframes float {
-        0% { transform: translateY(0px) rotate(0deg); }
-        100% { transform: translateY(-18px) rotate(3deg); }
+        0% { transform: translateY(0) rotate(0deg); }
+        100% { transform: translateY(-18px) rotate(4deg); }
       }
 
       @media (max-width: 980px) {
         .nav-links { display: none; }
-        .hero-grid, .about-wrap, .cap-grid, .work-grid, .process-grid, .method-grid { grid-template-columns: 1fr 1fr; }
+        .hero-grid,
+        .about-wrap,
+        .cap-grid,
+        .project-grid,
+        .process-grid,
+        .method-grid { grid-template-columns: 1fr 1fr; }
         .hero-grid { grid-template-columns: 1fr; }
         .cta-panel { flex-direction: column; align-items: flex-start; }
       }
 
       @media (max-width: 680px) {
-        .cap-grid, .work-grid, .process-grid, .method-grid, .metric-stack, .about-wrap { grid-template-columns: 1fr; }
+        .cap-grid,
+        .project-grid,
+        .process-grid,
+        .method-grid,
+        .metric-stack,
+        .about-wrap { grid-template-columns: 1fr; }
         .section-head { display: block; }
         .section-head p { margin-top: 12px; }
-        .hero { padding-top: 48px; }
-        .visual-wrap { height: 500px; }
-        .visual-shell { height: 500px; }
-        .hero-stats { gap: 12px; }
+        .hero { padding-top: 52px; }
+        .visual-panel { min-height: 500px; }
+        .board { height: 500px; }
+        .stats-row { gap: 12px; }
         .stat-box { min-width: 120px; }
         .cta-row { flex-direction: column; align-items: stretch; }
         .cta-row .button { width: 100%; }
@@ -731,13 +745,7 @@
     </style>
   </head>
   <body>
-    <div class="ambient-bg" aria-hidden="true">
-      <div class="ambient-orb a"></div>
-      <div class="ambient-orb b"></div>
-      <div class="ambient-orb c"></div>
-      <div class="ambient-grid"></div>
-      <div class="particle-layer" id="particleLayer"></div>
-    </div>
+    <div class="noise" aria-hidden="true"></div>
 
     <header class="topbar">
       <div class="container nav">
@@ -763,11 +771,15 @@
       <section class="hero">
         <div class="container hero-grid">
           <div class="reveal">
-            <span class="eyebrow">Electronics + software product builder</span>
-            <h1>I design systems that blend <span class="gradient-text">hardware intelligence</span> with polished digital execution.</h1>
+            <span class="tagline">Electronics + software product builder</span>
+            <h1>
+              I design <span class="gradient-text">intelligent systems</span>
+              that feel as sharp as they perform.
+            </h1>
             <p class="lead">
-              I’m an ECE student with a strong foundation in electronics, embedded systems, firmware, IoT, and software design.
-              I build practical engineering solutions that are technically sound, visually clear, and ready to impress clients and stakeholders.
+              I’m Shourya, an electronics and product-minded engineer building embedded systems,
+              firmware, IoT experiences, and practical digital interfaces that turn technical ideas
+              into real-world value.
             </p>
 
             <div class="cta-row">
@@ -775,29 +787,29 @@
               <a href="mailto:hello@shourya.dev" class="button secondary">Discuss a project</a>
             </div>
 
-            <div class="hero-stats">
+            <div class="stats-row">
               <div class="stat-box">
                 <strong>4</strong>
-                <span>core engineering disciplines</span>
+                <span>core engineering tracks</span>
               </div>
               <div class="stat-box">
                 <strong>100%</strong>
-                <span>problem-first mindset</span>
+                <span>problem-first thinking</span>
               </div>
               <div class="stat-box">
                 <strong>6+</strong>
-                <span>prototype and concept builds</span>
+                <span>prototype builds</span>
               </div>
             </div>
           </div>
 
-          <div class="visual-wrap reveal" aria-label="Engineering system visual">
-            <div class="visual-shell" id="visualShell">
+          <div class="visual-panel reveal" aria-label="Engineering systems visual">
+            <div class="board">
               <div class="orb one"></div>
               <div class="orb two"></div>
               <div class="orb three"></div>
 
-              <div class="chip-box">
+              <div class="module chip-stack">
                 <span class="chip-label">System stack</span>
                 <div class="chip-grid">
                   <div class="chip primary">PCB</div>
@@ -807,15 +819,15 @@
                 </div>
               </div>
 
-              <div class="floating-card main">
+              <div class="float-card">
                 <strong>Hardware + software</strong>
-                <span>From concept to practical product thinking.</span>
+                <span>From concept sketches to functioning product systems.</span>
               </div>
 
-              <div class="mini-badge">Embedded Systems</div>
-              <div class="mini-badge right">Automation</div>
+              <div class="badge">Embedded</div>
+              <div class="badge right">Automation</div>
 
-              <div class="signal-panel" aria-hidden="true"></div>
+              <div class="signal-box" aria-hidden="true"></div>
             </div>
           </div>
         </div>
@@ -824,15 +836,18 @@
       <section class="section" id="capabilities">
         <div class="container">
           <div class="section-head reveal">
-            <h2>What I can deliver</h2>
-            <p>My background lets me contribute across product concepting, electronics design, embedded logic, and user-facing digital experiences.</p>
+            <h2>Core capabilities</h2>
+            <p>
+              I work across the full product loop — from electronics architecture and firmware thinking
+              to UI clarity and user-facing product execution.
+            </p>
           </div>
 
           <div class="cap-grid">
             <article class="card reveal">
               <div class="icon-box">⚡</div>
-              <h3>Embedded & firmware</h3>
-              <p>I design microcontroller-based systems, real-time control logic, and efficient firmware solutions for smart products.</p>
+              <h3>Embedded systems</h3>
+              <p>Microcontroller logic, hardware-aware firmware, and real-time control built for efficient performance.</p>
               <ul class="tag-list">
                 <li>ESP32</li>
                 <li>MCU</li>
@@ -843,7 +858,7 @@
             <article class="card reveal">
               <div class="icon-box">🔌</div>
               <h3>Electronics design</h3>
-              <p>From circuit thinking to prototype validation, I work on reliable hardware approaches that connect theory to execution.</p>
+              <p>Circuit-level thinking, hardware planning, and prototype validation for practical engineering solutions.</p>
               <ul class="tag-list">
                 <li>PCB</li>
                 <li>Circuits</li>
@@ -854,7 +869,7 @@
             <article class="card reveal">
               <div class="icon-box">🌐</div>
               <h3>IoT & automation</h3>
-              <p>I connect devices, data, and logic into useful systems for monitoring, automation, and smart control ecosystems.</p>
+              <p>Connected device workflows, smart monitoring, and system logic that support real operational value.</p>
               <ul class="tag-list">
                 <li>IoT</li>
                 <li>Automation</li>
@@ -865,10 +880,10 @@
             <article class="card reveal">
               <div class="icon-box">🧠</div>
               <h3>Product thinking</h3>
-              <p>I combine engineering depth with product clarity so ideas become usable, aesthetic, and client-ready experiences.</p>
+              <p>Engineering depth paired with product clarity to create useful, polished, and client-ready experiences.</p>
               <ul class="tag-list">
                 <li>UX</li>
-                <li>Prototyping</li>
+                <li>Prototype</li>
                 <li>Strategy</li>
               </ul>
             </article>
@@ -879,16 +894,17 @@
       <section class="section" id="work">
         <div class="container">
           <div class="section-head reveal">
-            <h2>Selected work style</h2>
-            <p>My projects focus on real-world engineering usefulness, not just visual polish. I build systems that solve measurable problems.</p>
+            <h2>Selected work</h2>
+            <p>Focused on real-world engineering usefulness, measurable value, and systems that feel intentional from the start.</p>
           </div>
 
-          <div class="work-grid">
-            <article class="card work-card reveal">
-              <span class="work-tag">Smart Systems</span>
+          <div class="project-grid">
+            <article class="card project-card reveal">
+              <span class="project-kicker">Smart systems</span>
               <h3>Load Mirror</h3>
               <p>
-                Load Mirror is a smart monitoring project focused on understanding power usage, load behavior, and system performance with embedded intelligence and real-time observability.
+                A monitoring-focused system aimed at understanding power load behavior, system performance,
+                and smart observability with embedded intelligence.
               </p>
               <ul class="tag-list">
                 <li>Embedded</li>
@@ -897,25 +913,25 @@
               </ul>
               <div class="project-actions">
                 <a class="mini-link primary" href="https://github.com/thegodshourya/Loan-Mirror" target="_blank" rel="noreferrer">GitHub Repo</a>
-                <a class="mini-link" href="https://github.com/thegodshourya" target="_blank" rel="noreferrer">GitHub Profile</a>
+                <a class="mini-link" href="https://github.com/thegodshourya" target="_blank" rel="noreferrer">Profile</a>
               </div>
             </article>
 
-            <article class="card work-card reveal">
-              <span class="work-tag">Automation</span>
-              <h3>IoT control dashboard</h3>
-              <p>Built a connected control workflow that linked physical devices with digital logic and real-time management in a simple operational model.</p>
+            <article class="card project-card reveal">
+              <span class="project-kicker">Automation</span>
+              <h3>IoT Control Dashboard</h3>
+              <p>Designed a connected workflow that linked physical devices, digital logic, and operational oversight in one clean system.</p>
               <ul class="tag-list">
-                <li>IoT</li>
                 <li>Control</li>
                 <li>Logic</li>
+                <li>Systems</li>
               </ul>
             </article>
 
-            <article class="card work-card reveal">
-              <span class="work-tag">Prototype</span>
-              <h3>Product validation build</h3>
-              <p>Combined circuit planning, firmware logic, and interface thinking into a polished proof of concept that showed real product potential.</p>
+            <article class="card project-card reveal">
+              <span class="project-kicker">Prototype</span>
+              <h3>Product Validation Build</h3>
+              <p>Combining circuit planning, firmware structure, and interface thinking into a polished proof-of-concept product iteration.</p>
               <ul class="tag-list">
                 <li>Prototype</li>
                 <li>Testing</li>
@@ -930,32 +946,32 @@
         <div class="container">
           <div class="section-head reveal">
             <h2>How I work</h2>
-            <p>I keep the process focused on clarity, performance, and practical value so client projects move from concept to actual execution.</p>
+            <p>Clarity, practicality, and technical rigor guide every step from first concept to final product execution.</p>
           </div>
 
           <div class="process-grid">
             <article class="card process-card reveal">
               <span class="step-num">01</span>
               <h3>Understand</h3>
-              <p>I clarify goals, constraints, and expected outcomes before choosing the right technical path.</p>
+              <p>I clarify goals, constraints, and technical direction before choosing the right architectural and product path.</p>
             </article>
 
             <article class="card process-card reveal">
               <span class="step-num">02</span>
               <h3>Prototype</h3>
-              <p>I turn concepts into quick working models to validate usability and technical feasibility early.</p>
+              <p>I turn ideas into working models quickly so feasibility, usability, and product logic can be validated early.</p>
             </article>
 
             <article class="card process-card reveal">
               <span class="step-num">03</span>
               <h3>Build</h3>
-              <p>I implement a reliable system with architecture, testing, and performance in mind from the start.</p>
+              <p>I develop the full solution with an eye on reliability, performance, and maintainability from day one.</p>
             </article>
 
             <article class="card process-card reveal">
               <span class="step-num">04</span>
               <h3>Refine</h3>
-              <p>I improve usability, engineering quality, and presentation until the result feels polished and dependable.</p>
+              <p>I tighten usability, quality, and presentation until the final result feels confident, clear, and polished.</p>
             </article>
           </div>
         </div>
@@ -964,33 +980,35 @@
       <section class="section" id="about">
         <div class="container about-wrap">
           <div class="about-panel reveal">
-            <span class="eyebrow">Why clients choose me</span>
-            <h2>I think like an engineer and build like a product-focused problem solver.</h2>
+            <span class="tagline">Why clients choose me</span>
+            <h2>I think like an engineer and build like a product-minded problem solver.</h2>
             <p>
-              My background in ECE gives me a strong technical base in electronics, signal understanding, circuit reasoning, and systems thinking.
-              My software and product work give me the ability to shape those technical ideas into something client-friendly, structured, and presentable.
+              My background in electronics gives me a strong foundation in hardware thinking, sensing, power logic,
+              real-time systems, and dependable architecture. My product and software work help translate that technical depth
+              into usable, accessible, and polished experiences.
             </p>
             <p>
-              That combination matters. It helps me bridge the gap between technical complexity and real-world usefulness — which is exactly what many projects need.
+              That blend matters. It helps me bridge the gap between technical complexity and practical usefulness,
+              which is where the best product ideas usually become real execution.
             </p>
           </div>
 
           <div class="metric-stack reveal">
             <div class="metric-box">
               <strong>Electronics</strong>
-              <span>Hardware logic, power thinking, sensors, and system architecture.</span>
+              <span>Hardware logic, sensing, and system architecture built for real-world use.</span>
             </div>
             <div class="metric-box">
               <strong>Embedded</strong>
-              <span>Real-time control, firmware structure, and efficient execution.</span>
+              <span>Firmware structure, real-time logic, and efficient device behavior.</span>
             </div>
             <div class="metric-box">
               <strong>IoT</strong>
-              <span>Connected systems, automation flows, and smart device interaction.</span>
+              <span>Connected systems, monitoring flows, and smart device integration.</span>
             </div>
             <div class="metric-box">
               <strong>Software</strong>
-              <span>Digital experiences, interfaces, and product-driven implementation.</span>
+              <span>Digital interfaces, product structure, and user-facing engineering clarity.</span>
             </div>
           </div>
         </div>
@@ -999,13 +1017,10 @@
       <section class="section" id="contact">
         <div class="container">
           <div class="cta-panel reveal">
-            <div>
-              <span class="eyebrow">Let’s build something valuable</span>
-              <h3>Need a builder who understands both hardware and software?</h3>
-            </div>
-            <div class="cta-row" style="margin-top:0;">
-              <a href="https://github.com/thegodshourya" class="button secondary" target="_blank" rel="noreferrer">GitHub Profile</a>
-              <a href="mailto:hello@shourya.dev" class="button primary">Start a conversation</a>
+            <h3>Let’s build something smarter, cleaner, and more useful.</h3>
+            <div class="cta-row">
+              <a href="mailto:hello@shourya.dev" class="button primary">hello@shourya.dev</a>
+              <a href="https://github.com/thegodshourya" class="button secondary" target="_blank" rel="noreferrer">GitHub</a>
             </div>
           </div>
         </div>
@@ -1013,7 +1028,7 @@
     </main>
 
     <footer class="footer">
-      <div class="container">© 2026 Shourya — Electronics engineer, product thinker, and systems builder.</div>
+      <div class="container">© 2025 Shourya — Electronics Engineer & Product Builder</div>
     </footer>
 
     <script>
@@ -1025,76 +1040,9 @@
             observer.unobserve(entry.target);
           }
         });
-      }, { threshold: 0.18 });
+      }, { threshold: 0.14 });
 
-      revealItems.forEach(item => observer.observe(item));
-
-      const shell = document.getElementById('visualShell');
-      if (shell) {
-        window.addEventListener('pointermove', (event) => {
-          const x = (event.clientX / window.innerWidth - 0.5) * 20;
-          const y = (event.clientY / window.innerHeight - 0.5) * -18;
-          shell.style.transform = `rotateX(${y}deg) rotateY(${x}deg)`;
-        });
-
-        window.addEventListener('pointerleave', () => {
-          shell.style.transform = 'rotateX(0deg) rotateY(0deg)';
-        });
-      }
-
-      const particleLayer = document.getElementById('particleLayer');
-      const particleCount = 42;
-      for (let i = 0; i < particleCount; i++) {
-        const p = document.createElement('span');
-        p.className = 'particle';
-        const size = Math.random() * 5 + 2;
-        p.style.width = size + 'px';
-        p.style.height = size + 'px';
-        p.style.left = (Math.random() * 100) + '%';
-        p.style.top = (Math.random() * 100) + '%';
-        p.style.opacity = (Math.random() * 0.5 + 0.2).toFixed(2);
-        p.style.animation = 'float ' + (Math.random() * 8 + 10) + 's ease-in-out infinite alternate';
-        p.style.animationDelay = (Math.random() * 7) + 's';
-        particleLayer.appendChild(p);
-      }
-
-      let lastKnownScroll = 0;
-      const applyScrollMotion = () => {
-        const scrollY = window.scrollY;
-        const offset = scrollY * 0.25;
-        const ambient = document.querySelector('.ambient-bg');
-        if (ambient) {
-          ambient.style.transform = `translate3d(0, ${offset * 0.6}px, 0)`;
-        }
-
-        const orbs = document.querySelectorAll('.ambient-orb');
-        orbs.forEach((orb, index) => {
-          const depth = (index + 1) * 0.5;
-          orb.style.transform = `translate3d(0, ${scrollY * depth * 0.12}px, 0)`;
-        });
-
-        const shellTransform = (window.innerWidth > 680 ? 14 : 10) * (scrollY / 220);
-        if (shell) {
-          shell.style.boxShadow = `0 30px 80px rgba(4, 11, 23, ${0.7 - Math.min(scrollY / 3000, 0.2)})`;
-          shell.style.transform = `translateY(${shellTransform}px) rotateX(${Math.min((scrollY / 900) * 6, 6)}deg)`;
-        }
-      };
-
-      let ticking = false;
-      const onScroll = () => {
-        lastKnownScroll = window.scrollY;
-        if (!ticking) {
-          window.requestAnimationFrame(() => {
-            applyScrollMotion();
-            ticking = false;
-          });
-          ticking = true;
-        }
-      };
-
-      window.addEventListener('scroll', onScroll, { passive: true });
-      window.addEventListener('load', applyScrollMotion);
-      applyScrollMotion();
+      revealItems.forEach((item) => observer.observe(item));
     </script>
   </body>
 </html>
