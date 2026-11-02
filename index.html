@@ -3,32 +3,43 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <meta name="theme-color" content="#111815" />
-    <meta name="description" content="Shourya builds embedded systems, electronics, IoT products, and polished digital experiences for real-world engineering problems." />
+    <meta name="theme-color" content="#0b0b0d" />
+    <meta
+      name="description"
+      content="Shourya builds embedded systems, electronics, IoT products, and polished digital experiences for real-world engineering problems."
+    />
     <title>Shourya | Embedded Systems & Product Builder</title>
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&family=Space+Mono:wght@400;700&display=swap" rel="stylesheet" />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&family=Space+Mono:wght@400;700&display=swap"
+      rel="stylesheet"
+    />
     <style>
       :root {
-        --paper: #f1f0e9;
-        --ink: #111815;
-        --ink-soft: #25302a;
-        --muted: #667069;
-        --line: rgba(17, 24, 21, 0.16);
-        --lime: #c8ff4d;
-        --blue: #407cff;
-        --white: #fffef8;
-        --radius: 24px;
-        --container: min(1240px, calc(100% - 40px));
+        --bg: #0b0b0d;
+        --bg-soft: #121315;
+        --panel: #17181b;
+        --panel-2: #1d1f22;
+        --text: #f5f5f3;
+        --muted: #b9b9b6;
+        --line: rgba(255, 255, 255, 0.08);
+        --dark-line: rgba(255, 255, 255, 0.05);
+        --accent: #f5f5f3;
+        --soft-accent: #c9c3b5;
+        --lime: #dffb75;
+        --blue: #70a3ff;
+        --shadow: rgba(0,0,0,0.38);
+        --radius: 26px;
+        --container: min(1200px, calc(100% - 40px));
       }
 
       * { box-sizing: border-box; }
       html { scroll-behavior: smooth; }
       body {
         margin: 0;
-        color: var(--ink);
-        background: var(--paper);
+        color: var(--text);
+        background: var(--bg);
         font-family: "Inter", sans-serif;
         line-height: 1.6;
         overflow-x: hidden;
@@ -39,11 +50,9 @@
         position: fixed;
         inset: 0;
         z-index: -1;
-        background-image:
-          linear-gradient(rgba(17, 24, 21, 0.04) 1px, transparent 1px),
-          linear-gradient(90deg, rgba(17, 24, 21, 0.04) 1px, transparent 1px);
-        background-size: 40px 40px;
-        mask-image: linear-gradient(to bottom, black, transparent 75%);
+        background:
+          radial-gradient(circle at top right, rgba(112, 163, 255, 0.15), transparent 28%),
+          rgba(11,11,13,0.9);
       }
 
       a { color: inherit; text-decoration: none; }
@@ -57,7 +66,7 @@
         top: 0;
         z-index: 50;
         border-bottom: 1px solid var(--line);
-        background: rgba(241, 240, 233, 0.86);
+        background: rgba(11, 11, 13, 0.7);
         backdrop-filter: blur(18px);
       }
 
@@ -66,25 +75,41 @@
         display: flex;
         align-items: center;
         justify-content: space-between;
-        gap: 24px;
+        gap: 28px;
       }
 
-      .brand { display: inline-flex; align-items: center; gap: 12px; font-weight: 900; letter-spacing: -0.03em; }
+      .brand {
+        display: inline-flex;
+        align-items: center;
+        gap: 12px;
+        font-weight: 900;
+        letter-spacing: -0.04em;
+        font-size: 0.96rem;
+      }
+
       .brand-mark {
-        width: 38px;
-        height: 38px;
-        display: grid;
+        width: 36px;
+        height: 36px;
+        display: inline-grid;
         place-items: center;
         border-radius: 10px;
-        color: var(--lime);
-        background: var(--ink);
+        background: var(--text);
+        color: var(--bg);
         font-family: "Space Mono", monospace;
-        font-size: 0.9rem;
+        font-size: 0.8rem;
       }
 
-      .nav-links { display: flex; align-items: center; gap: 28px; color: var(--muted); font-size: 0.88rem; font-weight: 600; }
+      .nav-links {
+        display: flex;
+        align-items: center;
+        gap: 28px;
+        color: var(--muted);
+        font-size: 0.87rem;
+        font-weight: 600;
+      }
+
       .nav-links a { transition: color 0.2s ease; }
-      .nav-links a:hover { color: var(--ink); }
+      .nav-links a:hover { color: var(--text); }
 
       .button {
         min-height: 48px;
@@ -93,24 +118,38 @@
         align-items: center;
         justify-content: center;
         gap: 10px;
-        border: 1px solid var(--ink);
+        border: 1px solid var(--line);
         border-radius: 999px;
         font-size: 0.9rem;
         font-weight: 800;
-        transition: transform 0.2s ease, box-shadow 0.2s ease;
+        transition: transform 0.2s ease, border-color 0.2s ease, background 0.2s ease;
       }
 
-      .button:hover { transform: translateY(-2px); box-shadow: 0 10px 0 rgba(17, 24, 21, 0.1); }
-      .button.primary { color: var(--lime); background: var(--ink); }
-      .button.accent { color: var(--ink); background: var(--lime); }
-      .button.ghost { background: transparent; }
+      .button:hover {
+        transform: translateY(-2px);
+        border-color: rgba(255,255,255,0.2);
+      }
 
-      .hero { padding: 86px 0 52px; }
+      .button.primary {
+        color: var(--bg);
+        background: var(--text);
+        border-color: var(--text);
+      }
+
+      .button.ghost {
+        background: transparent;
+        color: var(--text);
+      }
+
+      .hero {
+        padding: 88px 0 42px;
+      }
+
       .hero-grid {
         display: grid;
-        grid-template-columns: minmax(0, 1.15fr) minmax(360px, 0.85fr);
+        grid-template-columns: minmax(0, 1.18fr) minmax(360px, 0.82fr);
         align-items: center;
-        gap: clamp(44px, 7vw, 100px);
+        gap: clamp(44px, 7vw, 96px);
       }
 
       .eyebrow {
@@ -122,6 +161,7 @@
         font-size: 0.72rem;
         text-transform: uppercase;
         letter-spacing: 0.12em;
+        color: var(--muted);
       }
 
       .eyebrow::before {
@@ -130,67 +170,118 @@
         height: 9px;
         border-radius: 50%;
         background: var(--blue);
-        box-shadow: 0 0 0 5px rgba(64, 124, 255, 0.13);
+        box-shadow: 0 0 0 5px rgba(112, 163, 255, 0.12);
       }
 
       .hero h1 {
-        max-width: 820px;
-        margin-bottom: 28px;
-        font-size: clamp(3.8rem, 7.6vw, 7.4rem);
-        line-height: 0.88;
+        max-width: 840px;
+        margin-bottom: 26px;
+        font-size: clamp(3.7rem, 7vw, 7rem);
+        line-height: 0.9;
         letter-spacing: -0.08em;
-        text-wrap: balance;
       }
 
-      .hero h1 span { display: block; color: var(--blue); }
-      .lead { max-width: 700px; color: var(--ink-soft); font-size: clamp(1rem, 1.5vw, 1.2rem); }
-      .cta-row { display: flex; flex-wrap: wrap; gap: 12px; margin-top: 32px; }
-      .availability { display: flex; align-items: center; gap: 10px; margin-top: 30px; color: var(--muted); font-size: 0.82rem; }
-      .availability i { width: 8px; height: 8px; border-radius: 50%; background: #24a86a; box-shadow: 0 0 0 5px rgba(36, 168, 106, 0.13); }
+      .hero h1 span {
+        display: block;
+        color: var(--soft-accent);
+      }
+
+      .lead {
+        max-width: 670px;
+        margin: 0;
+        color: var(--muted);
+        font-size: clamp(1rem, 1.4vw, 1.18rem);
+      }
+
+      .cta-row {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 12px;
+        margin-top: 30px;
+      }
+
+      .availability {
+        display: flex;
+        align-items: center;
+        gap: 10px;
+        margin-top: 30px;
+        color: var(--muted);
+        font-size: 0.82rem;
+      }
+
+      .availability i {
+        width: 8px;
+        height: 8px;
+        border-radius: 50%;
+        background: #50d279;
+        box-shadow: 0 0 0 5px rgba(80, 210, 121, 0.12);
+      }
 
       .system-card {
         position: relative;
         min-height: 570px;
-        padding: 24px;
-        border-radius: 34px;
-        color: var(--white);
-        background: var(--ink);
+        padding: 22px 22px 18px;
+        border-radius: 30px;
+        background: linear-gradient(180deg, rgba(255,255,255,0.04), rgba(255,255,255,0.02));
+        border: 1px solid var(--line);
+        box-shadow: 0 30px 70px rgba(0,0,0,0.35);
         overflow: hidden;
-        box-shadow: 22px 22px 0 var(--lime);
       }
 
       .system-card::before {
         content: "";
         position: absolute;
         inset: 0;
-        opacity: 0.16;
         background-image:
-          linear-gradient(rgba(200, 255, 77, 0.3) 1px, transparent 1px),
-          linear-gradient(90deg, rgba(200, 255, 77, 0.3) 1px, transparent 1px);
-        background-size: 32px 32px;
+          linear-gradient(rgba(255,255,255,0.04) 1px, transparent 1px),
+          linear-gradient(90deg, rgba(255,255,255,0.04) 1px, transparent 1px);
+        background-size: 26px 26px;
+        opacity: 0.55;
       }
 
-      .system-top, .system-bottom { position: relative; z-index: 2; display: flex; align-items: center; justify-content: space-between; gap: 18px; }
+      .system-top, .system-bottom {
+        position: relative;
+        z-index: 2;
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        gap: 18px;
+      }
+
       .system-top {
-        padding-bottom: 18px;
-        border-bottom: 1px solid rgba(255,255,255,0.15);
+        padding-bottom: 16px;
+        border-bottom: 1px solid var(--line);
         font-family: "Space Mono", monospace;
-        font-size: 0.68rem;
-        letter-spacing: 0.1em;
+        font-size: 0.7rem;
+        letter-spacing: 0.12em;
         text-transform: uppercase;
+        color: var(--muted);
       }
 
-      .status { display: inline-flex; align-items: center; gap: 8px; color: var(--lime); }
-      .status::before { content: ""; width: 7px; height: 7px; border-radius: 50%; background: currentColor; animation: pulse 1.8s ease-in-out infinite; }
+      .status {
+        display: inline-flex;
+        align-items: center;
+        gap: 8px;
+        color: var(--lime);
+      }
+
+      .status::before {
+        content: "";
+        width: 7px;
+        height: 7px;
+        border-radius: 50%;
+        background: currentColor;
+        animation: pulse 1.8s ease-in-out infinite;
+      }
 
       .board {
         position: relative;
         z-index: 2;
-        height: 385px;
-        margin: 28px 0 18px;
-        border: 1px solid rgba(255,255,255,0.14);
+        height: 390px;
+        margin: 28px 0 16px;
+        border: 1px solid var(--line);
         border-radius: 24px;
-        background: radial-gradient(circle at 72% 25%, rgba(64, 124, 255, 0.3), transparent 28%), rgba(255,255,255,0.025);
+        background: radial-gradient(circle at 72% 22%, rgba(112, 163, 255, 0.18), transparent 24%), rgba(255,255,255,0.02);
       }
 
       .core {
@@ -201,43 +292,62 @@
         display: grid;
         place-items: center;
         transform: translate(-50%, -50%);
-        border: 1px solid rgba(200,255,77,0.7);
+        border: 1px solid rgba(223, 251, 117, 0.8);
         border-radius: 28px;
-        background: rgba(200,255,77,0.08);
+        background: rgba(223, 251, 117, 0.08);
         color: var(--lime);
         font-family: "Space Mono", monospace;
-        font-size: 0.74rem;
+        font-size: 0.72rem;
         font-weight: 700;
         letter-spacing: 0.1em;
         text-align: center;
-        box-shadow: 0 0 50px rgba(200,255,77,0.12);
+        box-shadow: 0 0 50px rgba(223, 251, 117, 0.12);
       }
 
-      .core::before, .core::after { content: ""; position: absolute; background: var(--lime); opacity: 0.6; }
+      .core::before, .core::after {
+        content: "";
+        position: absolute;
+        background: var(--lime);
+        opacity: 0.6;
+      }
       .core::before { width: 220px; height: 1px; }
       .core::after { width: 1px; height: 220px; }
 
       .node {
         position: absolute;
-        min-width: 82px;
+        min-width: 86px;
         padding: 10px 12px;
         border: 1px solid rgba(255,255,255,0.16);
         border-radius: 12px;
-        background: #18211d;
+        background: rgba(255,255,255,0.03);
         font-family: "Space Mono", monospace;
         font-size: 0.62rem;
         letter-spacing: 0.08em;
         text-align: center;
+        color: var(--text);
       }
 
-      .node:nth-child(2) { top: 36px; left: 28px; }
-      .node:nth-child(3) { top: 52px; right: 26px; }
-      .node:nth-child(4) { bottom: 40px; left: 34px; }
+      .node:nth-child(2) { top: 42px; left: 28px; }
+      .node:nth-child(3) { top: 54px; right: 28px; }
+      .node:nth-child(4) { bottom: 40px; left: 32px; }
       .node:nth-child(5) { right: 28px; bottom: 52px; }
-      .system-bottom { color: rgba(255,255,255,0.65); font-size: 0.74rem; }
-      .system-bottom strong { color: var(--white); }
 
-      .ticker { margin-top: 88px; border-block: 1px solid var(--line); overflow: hidden; }
+      .system-bottom {
+        position: relative;
+        z-index: 2;
+        color: rgba(255,255,255,0.7);
+        font-size: 0.74rem;
+      }
+
+      .system-bottom strong { color: var(--text); }
+
+      .ticker {
+        margin-top: 86px;
+        border-top: 1px solid var(--line);
+        border-bottom: 1px solid var(--line);
+        overflow: hidden;
+      }
+
       .ticker-track {
         min-height: 64px;
         display: flex;
@@ -251,25 +361,101 @@
         letter-spacing: 0.12em;
         text-transform: uppercase;
       }
-      .ticker-track span::before { content: "✦"; margin-right: 34px; color: var(--blue); }
+
+      .ticker-track span::before {
+        content: "✦";
+        margin-right: 34px;
+        color: var(--blue);
+      }
 
       .section { padding: 104px 0; }
-      .section-label { display: block; margin-bottom: 20px; color: var(--blue); font-family: "Space Mono", monospace; font-size: 0.72rem; letter-spacing: 0.12em; text-transform: uppercase; }
-      .section-head { display: grid; grid-template-columns: 1fr minmax(280px, 0.62fr); align-items: end; gap: 40px; margin-bottom: 46px; }
-      .section-head h2 { margin: 0; font-size: clamp(2.8rem, 5.4vw, 5.5rem); line-height: 0.94; letter-spacing: -0.065em; }
-      .section-head p { margin: 0; color: var(--muted); }
+      .section-label {
+        display: block;
+        margin-bottom: 18px;
+        color: var(--blue);
+        font-family: "Space Mono", monospace;
+        font-size: 0.72rem;
+        letter-spacing: 0.12em;
+        text-transform: uppercase;
+      }
 
-      .cap-grid { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); border-top: 1px solid var(--line); }
-      .capability { position: relative; min-height: 260px; padding: 32px 34px 28px 72px; border-bottom: 1px solid var(--line); }
+      .section-head {
+        display: grid;
+        grid-template-columns: 1fr minmax(280px, 0.62fr);
+        align-items: end;
+        gap: 40px;
+        margin-bottom: 46px;
+      }
+
+      .section-head h2 {
+        margin: 0;
+        font-size: clamp(2.7rem, 5vw, 5.2rem);
+        line-height: 0.94;
+        letter-spacing: -0.065em;
+      }
+
+      .section-head p {
+        margin: 0;
+        color: var(--muted);
+      }
+
+      .cap-grid {
+        display: grid;
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+        border-top: 1px solid var(--line);
+      }
+
+      .capability {
+        position: relative;
+        min-height: 260px;
+        padding: 32px 34px 28px 72px;
+        border-bottom: 1px solid var(--line);
+      }
+
       .capability:nth-child(odd) { border-right: 1px solid var(--line); }
-      .capability .number { position: absolute; top: 36px; left: 8px; color: var(--blue); font-family: "Space Mono", monospace; font-size: 0.72rem; }
-      .capability h3 { margin-bottom: 14px; font-size: clamp(1.6rem, 2.5vw, 2.4rem); letter-spacing: -0.045em; }
-      .capability p { max-width: 520px; color: var(--muted); }
 
-      .tags { display: flex; flex-wrap: wrap; gap: 8px; margin-top: 26px; }
-      .tags span { padding: 7px 10px; border: 1px solid var(--line); border-radius: 999px; font-family: "Space Mono", monospace; font-size: 0.62rem; text-transform: uppercase; }
+      .capability .number {
+        position: absolute;
+        top: 36px;
+        left: 8px;
+        color: var(--blue);
+        font-family: "Space Mono", monospace;
+        font-size: 0.72rem;
+      }
 
-      .projects { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 18px; }
+      .capability h3 {
+        margin-bottom: 14px;
+        font-size: clamp(1.6rem, 2.5vw, 2.4rem);
+        letter-spacing: -0.045em;
+      }
+
+      .capability p {
+        max-width: 520px;
+        color: var(--muted);
+      }
+
+      .tags {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 8px;
+        margin-top: 26px;
+      }
+
+      .tags span {
+        padding: 7px 10px;
+        border: 1px solid var(--line);
+        border-radius: 999px;
+        font-family: "Space Mono", monospace;
+        font-size: 0.62rem;
+        text-transform: uppercase;
+      }
+
+      .projects {
+        display: grid;
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+        gap: 18px;
+      }
+
       .project {
         min-height: 340px;
         padding: 30px;
@@ -277,47 +463,192 @@
         flex-direction: column;
         border: 1px solid var(--line);
         border-radius: var(--radius);
-        background: rgba(255,255,255,0.32);
-        transition: transform 0.25s ease, background 0.25s ease;
+        background: rgba(255,255,255,0.02);
+        transition: transform 0.25s ease, background 0.25s ease, border-color 0.25s ease;
       }
 
-      .project:hover { transform: translateY(-5px); background: var(--white); }
-      .project.featured { grid-row: span 2; min-height: 698px; color: var(--white); background: var(--blue); border-color: var(--blue); }
-      .project-index { display: flex; justify-content: space-between; color: var(--muted); font-family: "Space Mono", monospace; font-size: 0.68rem; text-transform: uppercase; }
-      .featured .project-index { color: rgba(255,255,255,0.72); }
+      .project:hover {
+        transform: translateY(-5px);
+        background: rgba(255,255,255,0.04);
+        border-color: rgba(255,255,255,0.14);
+      }
+
+      .project.featured {
+        grid-row: span 2;
+        min-height: 698px;
+        background: linear-gradient(135deg, rgba(112,163,255,0.18), rgba(90,104,255,0.1));
+        border-color: rgba(112,163,255,0.3);
+      }
+
+      .project-index {
+        display: flex;
+        justify-content: space-between;
+        color: var(--muted);
+        font-family: "Space Mono", monospace;
+        font-size: 0.68rem;
+        text-transform: uppercase;
+      }
+
+      .featured .project-index { color: rgba(255,255,255,0.78); }
+
       .project-copy { margin-top: auto; }
-      .project h3 { margin-bottom: 16px; font-size: clamp(2rem, 4vw, 4.4rem); line-height: 0.95; letter-spacing: -0.06em; }
+
+      .project h3 {
+        margin-bottom: 16px;
+        font-size: clamp(2rem, 4vw, 4.4rem);
+        line-height: 0.95;
+        letter-spacing: -0.06em;
+      }
+
       .project:not(.featured) h3 { font-size: clamp(1.8rem, 3vw, 2.8rem); }
       .project p { max-width: 580px; color: var(--muted); }
-      .featured p { color: rgba(255,255,255,0.78); }
-      .featured .tags span { border-color: rgba(255,255,255,0.28); }
-      .project-link { width: fit-content; margin-top: 24px; padding-bottom: 3px; border-bottom: 1px solid currentColor; font-weight: 800; }
+      .featured p { color: rgba(255,255,255,0.8); }
+      .featured .tags span { border-color: rgba(255,255,255,0.24); }
 
-      .process-grid { display: grid; grid-template-columns: repeat(4, minmax(0, 1fr)); gap: 1px; overflow: hidden; border: 1px solid var(--line); border-radius: var(--radius); background: var(--line); }
-      .process-step { min-height: 280px; padding: 28px; background: var(--paper); }
-      .process-step b { color: var(--blue); font-family: "Space Mono", monospace; font-size: 0.72rem; }
-      .process-step h3 { margin: 68px 0 14px; font-size: 1.5rem; letter-spacing: -0.04em; }
-      .process-step p { color: var(--muted); font-size: 0.92rem; }
+      .project-link {
+        width: fit-content;
+        margin-top: 24px;
+        padding-bottom: 3px;
+        border-bottom: 1px solid currentColor;
+        font-weight: 800;
+      }
 
-      .about-grid { display: grid; grid-template-columns: minmax(0, 1.2fr) minmax(320px, 0.8fr); gap: 80px; align-items: start; }
-      .about-copy h2 { margin-bottom: 28px; font-size: clamp(2.8rem, 5vw, 5rem); line-height: 0.96; letter-spacing: -0.06em; }
-      .about-copy p { max-width: 730px; color: var(--muted); font-size: 1.06rem; }
+      .process-grid {
+        display: grid;
+        grid-template-columns: repeat(4, minmax(0, 1fr));
+        gap: 1px;
+        overflow: hidden;
+        border: 1px solid var(--line);
+        border-radius: var(--radius);
+        background: var(--line);
+      }
+
+      .process-step {
+        min-height: 280px;
+        padding: 28px;
+        background: var(--bg);
+      }
+
+      .process-step b {
+        color: var(--blue);
+        font-family: "Space Mono", monospace;
+        font-size: 0.72rem;
+      }
+
+      .process-step h3 {
+        margin: 68px 0 14px;
+        font-size: 1.5rem;
+        letter-spacing: -0.04em;
+      }
+
+      .process-step p {
+        color: var(--muted);
+        font-size: 0.92rem;
+      }
+
+      .about-grid {
+        display: grid;
+        grid-template-columns: minmax(0, 1.2fr) minmax(320px, 0.8fr);
+        gap: 80px;
+        align-items: start;
+      }
+
+      .about-copy h2 {
+        margin-bottom: 28px;
+        font-size: clamp(2.8rem, 5vw, 5rem);
+        line-height: 0.96;
+        letter-spacing: -0.06em;
+      }
+
+      .about-copy p {
+        max-width: 730px;
+        color: var(--muted);
+        font-size: 1.06rem;
+      }
+
       .disciplines { border-top: 1px solid var(--line); }
-      .discipline { padding: 20px 0; display: flex; align-items: center; justify-content: space-between; border-bottom: 1px solid var(--line); font-size: 1.15rem; font-weight: 800; }
-      .discipline span { color: var(--blue); font-family: "Space Mono", monospace; font-size: 0.7rem; }
+      .discipline {
+        padding: 20px 0;
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        border-bottom: 1px solid var(--line);
+        font-size: 1.15rem;
+        font-weight: 800;
+      }
 
-      .contact-card { position: relative; padding: clamp(34px, 6vw, 72px); border-radius: 34px; color: var(--white); background: var(--ink); overflow: hidden; }
-      .contact-card::after { content: ""; position: absolute; width: 360px; height: 360px; right: -80px; bottom: -190px; border-radius: 50%; background: var(--lime); }
-      .contact-card h2 { position: relative; z-index: 1; max-width: 900px; margin-bottom: 34px; font-size: clamp(3rem, 6.8vw, 7rem); line-height: 0.9; letter-spacing: -0.075em; }
+      .discipline span {
+        color: var(--blue);
+        font-family: "Space Mono", monospace;
+        font-size: 0.7rem;
+      }
+
+      .contact-card {
+        position: relative;
+        padding: clamp(34px, 6vw, 72px);
+        border-radius: 34px;
+        color: var(--text);
+        background: linear-gradient(135deg, rgba(255,255,255,0.03), rgba(255,255,255,0.02));
+        border: 1px solid var(--line);
+        overflow: hidden;
+      }
+
+      .contact-card::after {
+        content: "";
+        position: absolute;
+        width: 360px;
+        height: 360px;
+        right: -80px;
+        bottom: -190px;
+        border-radius: 50%;
+        background: rgba(223, 251, 117, 0.18);
+      }
+
+      .contact-card h2 {
+        position: relative;
+        z-index: 1;
+        max-width: 900px;
+        margin-bottom: 34px;
+        font-size: clamp(3rem, 6.6vw, 7rem);
+        line-height: 0.9;
+        letter-spacing: -0.075em;
+      }
+
       .contact-card .cta-row { position: relative; z-index: 2; }
-      .contact-card .button.ghost { color: var(--white); border-color: rgba(255,255,255,0.45); }
+      .contact-card .button.ghost {
+        color: var(--text);
+        border-color: rgba(255,255,255,0.36);
+      }
 
-      .footer { padding: 30px 0 46px; color: var(--muted); font-family: "Space Mono", monospace; font-size: 0.68rem; text-transform: uppercase; }
-      .footer .container { display: flex; justify-content: space-between; gap: 20px; }
+      .footer {
+        padding: 30px 0 46px;
+        color: var(--muted);
+        font-family: "Space Mono", monospace;
+        font-size: 0.68rem;
+        text-transform: uppercase;
+      }
 
-      .reveal { opacity: 0; transform: translateY(22px); transition: opacity 0.65s ease, transform 0.65s ease; }
-      .reveal.visible { opacity: 1; transform: none; }
-      @keyframes pulse { 0%, 100% { opacity: 1; } 50% { opacity: 0.35; } }
+      .footer .container {
+        display: flex;
+        justify-content: space-between;
+        gap: 20px;
+      }
+
+      .reveal {
+        opacity: 0;
+        transform: translateY(22px);
+        transition: opacity 0.65s ease, transform 0.65s ease;
+      }
+
+      .reveal.visible {
+        opacity: 1;
+        transform: none;
+      }
+
+      @keyframes pulse {
+        0%, 100% { opacity: 1; }
+        50% { opacity: 0.35; }
+      }
 
       @media (max-width: 980px) {
         .nav-links { display: none; }
@@ -331,8 +662,8 @@
         :root { --container: min(100% - 24px, 1240px); }
         .topbar .button { display: none; }
         .hero { padding-top: 54px; }
-        .hero h1 { font-size: clamp(3.25rem, 17vw, 5.4rem); }
-        .system-card { min-height: 500px; padding: 18px; box-shadow: 10px 10px 0 var(--lime); }
+        .hero h1 { font-size: clamp(3.2rem, 16vw, 5.4rem); }
+        .system-card { min-height: 500px; padding: 18px; }
         .board { height: 330px; }
         .core { width: 108px; height: 108px; }
         .node { min-width: 64px; padding: 8px; font-size: 0.54rem; }
@@ -350,7 +681,10 @@
 
       @media (prefers-reduced-motion: reduce) {
         html { scroll-behavior: auto; }
-        *, *::before, *::after { animation-duration: 0.01ms !important; transition-duration: 0.01ms !important; }
+        *, *::before, *::after {
+          animation-duration: 0.01ms !important;
+          transition-duration: 0.01ms !important;
+        }
         .reveal { opacity: 1; transform: none; }
       }
     </style>
@@ -358,11 +692,19 @@
   <body>
     <header class="topbar">
       <div class="container nav">
-        <a href="#top" class="brand" aria-label="Shourya home"><span class="brand-mark">S</span><span>Shourya</span></a>
+        <a href="#top" class="brand" aria-label="Shourya home">
+          <span class="brand-mark">S</span>
+          <span>Shourya</span>
+        </a>
+
         <nav class="nav-links" aria-label="Main navigation">
-          <a href="#capabilities">Capabilities</a><a href="#work">Work</a><a href="#process">Process</a><a href="#about">About</a>
+          <a href="#capabilities">Capabilities</a>
+          <a href="#work">Work</a>
+          <a href="#process">Process</a>
+          <a href="#about">About</a>
           <a href="https://github.com/thegodshourya" target="_blank" rel="noreferrer">GitHub</a>
         </nav>
+
         <a href="#contact" class="button primary">Start a project ↗</a>
       </div>
     </header>
@@ -373,30 +715,119 @@
           <div class="hero-copy reveal">
             <span class="eyebrow">Electronics + software product builder</span>
             <h1>I build intelligent systems <span>for the physical world.</span></h1>
-            <p class="lead">I’m Shourya, a product-minded engineer turning embedded systems, electronics, firmware, and IoT ideas into useful products that work beyond the prototype.</p>
-            <div class="cta-row"><a href="#work" class="button primary">Explore my work</a><a href="mailto:hello@shourya.dev" class="button ghost">hello@shourya.dev</a></div>
+            <p class="lead">
+              I’m Shourya, a product-minded engineer turning embedded systems, electronics,
+              firmware, and IoT ideas into useful products that work beyond the prototype.
+            </p>
+
+            <div class="cta-row">
+              <a href="#work" class="button primary">Explore my work</a>
+              <a href="mailto:hello@shourya.dev" class="button ghost">hello@shourya.dev</a>
+            </div>
+
             <div class="availability"><i aria-hidden="true"></i> Available for selected product collaborations</div>
           </div>
 
           <div class="system-card reveal" aria-label="Connected product system diagram">
-            <div class="system-top"><span>System / 001</span><span class="status">Online</span></div>
-            <div class="board"><div class="core">PRODUCT<br />CORE</div><div class="node">SENSORS</div><div class="node">FIRMWARE</div><div class="node">CLOUD</div><div class="node">INTERFACE</div></div>
-            <div class="system-bottom"><span><strong>04</strong> connected layers</span><span>Hardware → experience</span></div>
+            <div class="system-top">
+              <span>System / 001</span>
+              <span class="status">Online</span>
+            </div>
+
+            <div class="board">
+              <div class="core">PRODUCT<br />CORE</div>
+              <div class="node">SENSORS</div>
+              <div class="node">FIRMWARE</div>
+              <div class="node">CLOUD</div>
+              <div class="node">INTERFACE</div>
+            </div>
+
+            <div class="system-bottom">
+              <span><strong>04</strong> connected layers</span>
+              <span>Hardware → experience</span>
+            </div>
           </div>
         </div>
 
-        <div class="ticker"><div class="container ticker-track"><span>Embedded systems</span><span>Electronics</span><span>IoT</span><span>Firmware</span><span>Product design</span></div></div>
+        <div class="ticker">
+          <div class="container ticker-track">
+            <span>Embedded systems</span>
+            <span>Electronics</span>
+            <span>IoT</span>
+            <span>Firmware</span>
+            <span>Product design</span>
+          </div>
+        </div>
       </section>
 
       <section class="section" id="capabilities">
         <div class="container">
           <span class="section-label">01 / Capabilities</span>
-          <div class="section-head reveal"><h2>Across the full product loop.</h2><p>From circuit-level decisions to the interface people use, I connect the layers that make a product dependable and clear.</p></div>
+
+          <div class="section-head reveal">
+            <h2>Across the full product loop.</h2>
+            <p>
+              From circuit-level decisions to the interface people use, I connect the layers that
+              make a product dependable and useful.
+            </p>
+          </div>
+
           <div class="cap-grid">
-            <article class="capability reveal"><span class="number">01</span><h3>Embedded systems</h3><p>Microcontroller logic, hardware-aware firmware, and real-time decision systems built for efficiency.</p><div class="tags"><span>ESP32</span><span>MCU</span><span>Firmware</span></div></article>
-            <article class="capability reveal"><span class="number">02</span><h3>Electronics design</h3><p>Circuit-level thinking, hardware planning, and prototype validation for practical engineering solutions.</p><div class="tags"><span>PCB</span><span>Circuits</span><span>Sensors</span></div></article>
-            <article class="capability reveal"><span class="number">03</span><h3>IoT & automation</h3><p>Connected workflows, monitoring systems, and logic that create operational value in real environments.</p><div class="tags"><span>IoT</span><span>Automation</span><span>Data</span></div></article>
-            <article class="capability reveal"><span class="number">04</span><h3>Product thinking</h3><p>Engineering depth paired with product clarity to make useful, polished, and client-ready experiences.</p><div class="tags"><span>UX</span><span>Prototype</span><span>Strategy</span></div></article>
+            <article class="capability reveal">
+              <span class="number">01</span>
+              <h3>Embedded systems</h3>
+              <p>
+                Microcontroller logic, hardware-aware firmware, and real-time decision systems built
+                for practical reliability.
+              </p>
+              <div class="tags">
+                <span>ESP32</span>
+                <span>STM32</span>
+                <span>C/C++</span>
+              </div>
+            </article>
+
+            <article class="capability reveal">
+              <span class="number">02</span>
+              <h3>Electronics design</h3>
+              <p>
+                Circuit thinking, hardware planning, and prototype validation for real-world systems
+                with clear engineering constraints.
+              </p>
+              <div class="tags">
+                <span>PCB</span>
+                <span>Power</span>
+                <span>Schematics</span>
+              </div>
+            </article>
+
+            <article class="capability reveal">
+              <span class="number">03</span>
+              <h3>IoT & automation</h3>
+              <p>
+                Connected workflows, monitoring systems, and logic that create operational value in
+                live environments.
+              </p>
+              <div class="tags">
+                <span>MQTT</span>
+                <span>Cloud</span>
+                <span>Monitoring</span>
+              </div>
+            </article>
+
+            <article class="capability reveal">
+              <span class="number">04</span>
+              <h3>Product thinking</h3>
+              <p>
+                Engineering depth paired with product clarity to make useful, polished, and
+                client-ready experiences.
+              </p>
+              <div class="tags">
+                <span>UX</span>
+                <span>Vision</span>
+                <span>Strategy</span>
+              </div>
+            </article>
           </div>
         </div>
       </section>
@@ -404,14 +835,47 @@
       <section class="section" id="work">
         <div class="container">
           <span class="section-label">02 / Selected work</span>
-          <div class="section-head reveal"><h2>Ideas made tangible.</h2><p>Selected systems focused on real-world utility, clear product decisions, and measurable value.</p></div>
+
+          <div class="section-head reveal">
+            <h2>Ideas made tangible.</h2>
+            <p>Selected systems focused on real-world utility, clear product decisions, and measurable value.</p>
+          </div>
+
           <div class="projects">
             <article class="project featured reveal">
               <div class="project-index"><span>Smart systems</span><span>01</span></div>
-              <div class="project-copy"><h3>Load Mirror</h3><p>A monitoring system for understanding power behavior, system performance, and smart observability with embedded intelligence.</p><div class="tags"><span>Embedded</span><span>IoT</span><span>Monitoring</span></div><a class="project-link" href="https://github.com/thegodshourya/Loan-Mirror" target="_blank" rel="noreferrer">View repository ↗</a></div>
+              <div class="project-copy">
+                <h3>Load Mirror</h3>
+                <p>
+                  A monitoring system for understanding power behavior, system performance, and smart
+                  observability with embedded intelligence.
+                </p>
+                <div class="tags">
+                  <span>Electrical</span>
+                  <span>Monitoring</span>
+                  <span>Embedded</span>
+                </div>
+                <div class="project-link">View project</div>
+              </div>
             </article>
-            <article class="project reveal"><div class="project-index"><span>Automation</span><span>02</span></div><div class="project-copy"><h3>IoT Control Dashboard</h3><p>A connected workflow linking physical devices, digital logic, and operational oversight in one clear system.</p><div class="tags"><span>Control</span><span>Logic</span><span>Systems</span></div></div></article>
-            <article class="project reveal"><div class="project-index"><span>Prototype</span><span>03</span></div><div class="project-copy"><h3>Product Validation Build</h3><p>Circuit planning, firmware structure, and interface thinking combined into a polished proof of concept.</p><div class="tags"><span>Prototype</span><span>Testing</span><span>Iteration</span></div></div></article>
+
+            <article class="project reveal">
+              <div class="project-index"><span>Automation</span><span>02</span></div>
+              <div class="project-copy">
+                <h3>IoT Control Dashboard</h3>
+                <p>Connected workflows and monitoring interfaces for operational visibility and response.</p>
+                <div class="project-link">View project</div>
+              </div>
+            </article>
+
+            <article class="project reveal">
+              <div class="project-index"><span>Prototype</span><span>03</span></div>
+              <div class="project-copy">
+                <h3>Product Validation Build</h3>
+                <p>Circuit planning, software integration, and hardware validation for early-stage product testing.</p>
+                <div class="project-link">View project</div>
+              </div>
+            </article>
           </div>
         </div>
       </section>
@@ -419,29 +883,87 @@
       <section class="section" id="process">
         <div class="container">
           <span class="section-label">03 / Process</span>
-          <div class="section-head reveal"><h2>Clear from idea to execution.</h2><p>Technical rigor matters most when it stays connected to the problem, the constraints, and the people using the result.</p></div>
+
+          <div class="section-head reveal">
+            <h2>Clear from idea to execution.</h2>
+            <p>
+              Technical rigor matters most when it stays connected to the problem, the constraints,
+              and the people using the result.
+            </p>
+          </div>
+
           <div class="process-grid reveal">
-            <article class="process-step"><b>01</b><h3>Understand</h3><p>Clarify goals, constraints, and the technical direction before choosing the path.</p></article>
-            <article class="process-step"><b>02</b><h3>Prototype</h3><p>Build a working model early to validate feasibility, logic, and usability.</p></article>
-            <article class="process-step"><b>03</b><h3>Build</h3><p>Develop the solution with reliability, performance, and maintainability in view.</p></article>
-            <article class="process-step"><b>04</b><h3>Refine</h3><p>Tighten the experience until the product feels intentional and ready to use.</p></article>
+            <article class="process-step">
+              <b>01</b>
+              <h3>Understand</h3>
+              <p>Clarify goals, constraints, and technical direction before choosing the path forward.</p>
+            </article>
+
+            <article class="process-step">
+              <b>02</b>
+              <h3>Prototype</h3>
+              <p>Build a working model early to validate feasibility, logic, and usability.</p>
+            </article>
+
+            <article class="process-step">
+              <b>03</b>
+              <h3>Build</h3>
+              <p>Develop the solution with reliability, performance, and maintainability in view.</p>
+            </article>
+
+            <article class="process-step">
+              <b>04</b>
+              <h3>Refine</h3>
+              <p>Tighten the experience until the product feels intentional and ready to use.</p>
+            </article>
           </div>
         </div>
       </section>
 
       <section class="section" id="about">
         <div class="container about-grid">
-          <div class="about-copy reveal"><span class="section-label">04 / About</span><h2>Engineering depth, shaped into useful products.</h2><p>My electronics background gives me a strong foundation in hardware, sensing, power logic, and real-time systems. Product and software work help me translate that depth into accessible, polished experiences.</p><p>That bridge between technical complexity and practical usefulness is where I do my best work.</p></div>
-          <div class="disciplines reveal" aria-label="Core disciplines"><div class="discipline">Electronics <span>01</span></div><div class="discipline">Embedded <span>02</span></div><div class="discipline">IoT <span>03</span></div><div class="discipline">Software <span>04</span></div></div>
+          <div class="about-copy reveal">
+            <span class="section-label">04 / About</span>
+            <h2>Engineering depth, shaped into useful products.</h2>
+            <p>
+              My electronics background gives me a strong foundation in the mechanics of real systems,
+              while my product mindset keeps the work focused on value, usability, and business-ready outcomes.
+            </p>
+            <p>
+              I work across the full stack of a product: system thinking, hardware choices, embedded logic,
+              software integration, and the final polish people experience.
+            </p>
+          </div>
+
+          <div class="disciplines reveal" aria-label="Core disciplines">
+            <div class="discipline">Electronics <span>01</span></div>
+            <div class="discipline">Embedded <span>02</span></div>
+            <div class="discipline">IoT <span>03</span></div>
+            <div class="discipline">Product design <span>04</span></div>
+          </div>
         </div>
       </section>
 
       <section class="section" id="contact">
-        <div class="container"><div class="contact-card reveal"><span class="section-label">05 / Start a conversation</span><h2>Let’s build something that works in the real world.</h2><div class="cta-row"><a href="mailto:hello@shourya.dev" class="button accent">hello@shourya.dev ↗</a><a href="https://github.com/thegodshourya" class="button ghost" target="_blank" rel="noreferrer">GitHub profile</a></div></div></div>
+        <div class="container">
+          <div class="contact-card reveal">
+            <span class="section-label">05 / Start a conversation</span>
+            <h2>Let’s build something that works in the real world.</h2>
+            <div class="cta-row">
+              <a href="mailto:hello@shourya.dev" class="button primary">hello@shourya.dev</a>
+              <a href="https://github.com/thegodshourya" target="_blank" rel="noreferrer" class="button ghost">GitHub</a>
+            </div>
+          </div>
+        </div>
       </section>
     </main>
 
-    <footer class="footer"><div class="container"><span>© 2026 Shourya</span><span>Electronics engineer & product builder</span></div></footer>
+    <footer class="footer">
+      <div class="container">
+        <span>© 2026 Shourya</span>
+        <span>Electronics engineer & product builder</span>
+      </div>
+    </footer>
 
     <script>
       const items = document.querySelectorAll(".reveal");
@@ -454,6 +976,7 @@
             }
           });
         }, { threshold: 0.12 });
+
         items.forEach((item) => observer.observe(item));
       } else {
         items.forEach((item) => item.classList.add("visible"));
